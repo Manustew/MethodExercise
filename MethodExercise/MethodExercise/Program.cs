@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Net.Http.Headers;
 
 namespace MethodExercise
 {
@@ -6,8 +8,16 @@ namespace MethodExercise
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Name any integer");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Name another integer");
+            var num2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("The sum of your numbers is");
+            Console.WriteLine(Add(num1, num2));
+            Console.WriteLine("Their product is");  
+            Console.WriteLine(Multiply(num1, num2));
             Console.WriteLine("Do you want to try a classic game of Mad-Libs?");
-            var play = Console.ReadLine();
+            var play = Console.ReadLine().ToLower();
             if (play == "yes" || play == "Yes" || play == "YES" || play == "sure" || play == "ya")
             {
                 Console.WriteLine("Great!  Let's Play.");
@@ -53,16 +63,25 @@ namespace MethodExercise
                 $"In the spring we'd make {food} helmets. At the age of 15 I went off to Evil Medical School. \n " +
                 $"At the age of 25 I took up {skill}.\n  I wanted to be a triple threat.  Actor.  Dancer.  {profession2}.");
 
-            
-
-
-
-            
 
 
 
 
-            
+
+
+
+        }
+
+        public static int Add(int num1, int num2)
+        {
+            int sum = (num1 + num2);
+            return sum;
+        }
+
+        public static int Multiply(int num1, int num2)
+        {
+            int product = (num1 * num2);
+            return product;
         }
     }
 }
